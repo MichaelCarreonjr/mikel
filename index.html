@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Link Changer</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .linkClass {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        .btnClass {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .btnClass:hover {
+            transform: scale(1.05);
+        }
+
+        .btnClass:active {
+            transform: scale(1);
+        }
+
+        .headerClass {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3 class="headerClass" id="headerId">Welcome to YouTube Link Changer!</h3>
+
+    <h3 class="headerClass">Current YouTube Link:</h3>
+    <a href="https://www.youtube.com/watch?v=aTrtW-IeTf0" id="youtubeLink" class="linkClass"> YouTube Video 1</a>
+
+    <h3 class="headerClass">Change the Link:</h3>
+    <button class="btnClass" onclick="changeLink()">Change Link</button>
+
+    <script>
+        function changeLink() {
+            // Using getElementById
+            let linkElement = document.getElementById('youtubeLink');
+            linkElement.href = "https://www.youtube.com/watch?v=NqSG0Qls62c";
+            linkElement.innerHTML = " YouTube Video 2";
+
+            // Using getElementsByClassName (changes the first element with the class)
+            let headerElements = document.getElementsByClassName('headerClass');
+            headerElements[0].innerHTML = "Link has been changed!";
+
+            // Using getElementsByTagName (changes the first h3 tag)
+            let h3Elements = document.getElementsByTagName('h3');
+            h3Elements[0].style.color = "red";
+
+            // Using querySelector (selects the button and changes its text)
+            let buttonElement = document.querySelector('.btnClass');
+            buttonElement.innerHTML = "Link Already Changed!";
+        }
+    </script>
+
+</body>
+
+</html>
